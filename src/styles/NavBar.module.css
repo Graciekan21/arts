@@ -3,5 +3,13 @@
     border: 1px solid #dadafd;
 }
 
+.Navbar{
+    padding: 5px;
+}
+
+.Active{
+    color: #2142b2;
+}
+
 
   
