@@ -9,12 +9,12 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
-        <switch>
+        <Switch>
           <Route exact path="/" render={() => <h1>Home page</h1>} /> 
           <Route exact path="/signin" render={() => <h1>Sign in</h1>} />
           <Route exact path="/signup" render={() => <h1>Sign up</h1>} />
           <Route render={() => <p>Page not found!</p>} />
-        </switch>
+        </Switch>
         <h1>Sign in</h1>
       </Container>
     </div>
