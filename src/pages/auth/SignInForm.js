@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import axios from "axios";
 
@@ -17,8 +16,11 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { SetCurrentUserContext } from "../../App";
 
+
+
+
 function SignInForm() {
-  const setCurrentUser = useContext(SetCurrentUserContext);
+  const setCurrentUser = useContext(SetCurrentUserContext) 
 
   const [signInData, setSignInData] = useState({
     username: "",
