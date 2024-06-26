@@ -65,11 +65,11 @@ function SignInForm() {
               />
             </Form.Group>
             {errors.username?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
+              <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
-            ))}
-
+            ))}   
+            
             <Form.Group controlId="password">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
