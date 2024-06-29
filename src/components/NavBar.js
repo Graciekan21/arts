@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
@@ -9,26 +9,13 @@ import {
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import useCilckOutsideToggle from "../hooks/useCilckOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const [expanded, setExpanded] = useState(false)
-  const ref = useRef(null)
-  useEffect(() => {
-    const handleCilckOutside =(event) => {
-      if (ref.current && !ref.current.contains(event.target)){
-        setExpanded(false)
-      }
-    }
-    document.addEventListener('mouseup', handleCilckOutside)
-    return () => {
-      document.removeEventListener('mouseup',handleCilckOutside)
-    }
-  
-}, [ref])
-
+  const {expanded, setExpanded, ref} = useCilckOutsideToggle();
 
 
   const handleSignOut = async () => {
