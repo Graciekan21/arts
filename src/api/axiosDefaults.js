@@ -6,9 +6,6 @@ axios.defaults.withCredentials = true;
 
 export const axiosReq = axios.create({
     baseURL: axios.defaults.baseURL,
-    headers: {
-      'Content-Type': 'application/json',
-    },
     withCredentials: true,  // Include credentials in requests
   });
   
