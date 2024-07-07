@@ -19,6 +19,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
+
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
@@ -50,7 +51,7 @@ function PostCreateForm() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
@@ -124,7 +125,7 @@ function PostCreateForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image className={`${appStyles.Image} col-sm-4 col-md-6 col-lg-8`} src={image} />
+                    <Image className={`$appStyles.Image} col-sm-4 col-md-6 Col-lg-8`}src={image} />
                   </figure>
                   <div>
                     <Form.Label
