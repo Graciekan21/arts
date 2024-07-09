@@ -10,6 +10,7 @@ import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import ProfilePage from "./pages/profiles/ProfilePage";
 import PostEditForm from "./pages/posts/PostEditForm";
 
 
