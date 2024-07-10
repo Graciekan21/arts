@@ -4,9 +4,6 @@ axios.defaults.baseURL ="https://learnapi-91da03df4b64.herokuapp.com/";//"https:
 axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
 axios.defaults.withCredentials = true;
 
-export const axiosReq = axios.create({
-    baseURL: axios.defaults.baseURL,
-    withCredentials: true,  // Include credentials in requests
-  });
+export const axiosReq = axios.create();
   
 export const axiosRes = axios.create();
