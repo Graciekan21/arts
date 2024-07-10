@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
@@ -29,55 +28,61 @@ const NavBar = () => {
 
   const addPostIcon = (
     <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
+      className={styles.navLink}
+      activeClassName={styles.active}
       to="/posts/create"
     >
-      <i className="far fa-plus-square"></i>Add post
+      <i className="far fa-plus-square"></i> Add post
     </NavLink>
   );
+
   const loggedInIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
+        className={styles.navLink}
+        activeClassName={styles.active}
         to="/feed"
       >
-        <i className="fas fa-stream"></i>Feed
+        <i className="fas fa-stream"></i> Feed
       </NavLink>
       <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
+        className={styles.navLink}
+        activeClassName={styles.active}
         to="/liked"
       >
-        <i className="fas fa-heart"></i>Liked
-      </NavLink>
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <i className="fas fa-heart"></i> Liked
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={styles.navLink}
+        to="/"
+        onClick={handleSignOut}
+      >
+        <i className="fas fa-sign-out-alt"></i> Sign out
+      </NavLink>
+      <NavLink
+        className={styles.navLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
     </>
   );
+
   const loggedOutIcons = (
     <>
       <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
+        className={styles.navLink}
+        activeClassName={styles.active}
         to="/signin"
       >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+        <i className="fas fa-sign-in-alt"></i> Sign in
       </NavLink>
       <NavLink
+        className={styles.navLink}
+        activeClassName={styles.active}
         to="/signup"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
       >
-        <i className="fas fa-user-plus"></i>Sign up
+        <i className="fas fa-user-plus"></i> Sign up
       </NavLink>
     </>
   );
@@ -85,9 +90,11 @@ const NavBar = () => {
   return (
     <Navbar
       expanded={expanded}
-      className={styles.NavBar}
+      className={styles.navBar}
       expand="md"
       fixed="top"
+      variant="dark"
+      bg="primary"
     >
       <Container>
         <NavLink to="/">
@@ -102,16 +109,15 @@ const NavBar = () => {
           aria-controls="basic-navbar-nav"
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto text-left">
+          <Nav className="ml-auto">
             <NavLink
               exact
-              className={styles.NavLink}
-              activeClassName={styles.Active}
+              className={styles.navLink}
+              activeClassName={styles.active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fas fa-home"></i> Home
             </NavLink>
-
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>

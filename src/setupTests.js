@@ -3,10 +3,15 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
-import {setupServer} from 'msw/node'
 import { handlers } from './mocks/handlers';
+import { TextEncoder, TextDecoder } from 'util';
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
+import {setupServer} from 'msw/node'
 
 const server = setup(...handlers)
 
 beforeAll(() => server.listen())
-afterEach(() =>server.close())
+afterEach(() => server.resetHandlers())
+afterAll(() =>server.close())
