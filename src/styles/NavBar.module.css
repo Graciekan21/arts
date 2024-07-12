@@ -1,3 +1,9 @@
+.font-weight-bold {
+  font-weight: bold;
+}
+
+
+
 .NavBar {
     background-color: #007bff; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,18 +49,17 @@
 
   .avatar {
     border-radius: 50%;
-    margin-left: 0.5rem;
+    margin: 0px 8px 0px 8px;
   }
   
   .ml-auto {
     margin-left: auto !important;
   }
-  
- 
-  .font-weight-bold {
-    font-weight: bold;
-  }
-  
+       
+
+
+
+
 
 
   
