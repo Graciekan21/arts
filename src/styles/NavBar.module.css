@@ -1,15 +1,60 @@
-.Navbar{
-    background-color: #ffffff;
+.NavBar {
+    background-color: #007bff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
     border: 1px solid #dadafd;
-}
+  }
 
-.Navbar{
-    padding: 5px;
-}
+
 
 .Active{
     color: #2142b2;
 }
+
+  
+  .navLink {
+    color: #ffffff; 
+    font-size: 1rem;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  
+
+  .navLink.active,
+  .navLink:active,
+  .navLink:hover {
+    color: #ffc107; 
+  }
+  
+  
+  .navLink i {
+    margin-right: 0.5rem;
+  }
+  
+  
+  .navBar img {
+    height: 45px;
+  }
+  
+
+  .avatar {
+    border-radius: 50%;
+    margin-left: 0.5rem;
+  }
+  
+  .ml-auto {
+    margin-left: auto !important;
+  }
+  
+ 
+  .font-weight-bold {
+    font-weight: bold;
+  }
+  
 
 
   

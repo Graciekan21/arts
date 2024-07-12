@@ -15,7 +15,6 @@ import PostEditForm from "./pages/posts/PostEditForm";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import NotificationBell from "./components/NotificationBell";
 import ReportAbuse from "./components/ReportAbuse";
 
 function App() {
@@ -75,7 +74,6 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-          <Route exact path="/notifications" render={() => <NotificationBell />} />
           <Route exact path="/report-abuse" render={() => <ReportAbuse />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>

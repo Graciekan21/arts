@@ -10,7 +10,7 @@ import {
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
-
+import NotificationBell from './NotificationBell'
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -38,6 +38,9 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
+      <nav className={styles.navLink}>
+        <NotificationBell />
+      </nav>
       <NavLink
         className={styles.navLink}
         activeClassName={styles.active}
