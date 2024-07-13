@@ -4,11 +4,6 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import { handlers } from './mocks/handlers';
-import { TextEncoder, TextDecoder } from 'util';
-global.TextEncoder = TextEncoder;
-global.TextDecoder = TextDecoder;
-
-import {setupServer} from 'msw/node'
 
 const server = setup(...handlers)
 

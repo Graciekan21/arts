@@ -34,7 +34,8 @@ const NotificationBell = () => {
 
     const markAsRead = async (id) => {
         try {
-            await axios.patch(`mynotifications/${id}/`, { is_read: true });
+            axios.patch(`mynotifications/${id}/`, { is_read: true });
+            fetchNotifications();
         } catch (error) {
             console.error('Error marking notification as read:', error); 
         }
