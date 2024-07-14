@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
+import "../styles/NotificationBell.module.css";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -42,9 +43,7 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-      <nav className={styles.navLink}>
-        <NotificationBell />
-      </nav>
+
       <NavLink
         className={styles.navLink}
         activeClassName={styles.active}
@@ -66,6 +65,9 @@ const NavBar = () => {
       >
         <i className="fas fa-sign-out-alt"></i> Sign out
       </NavLink>
+      <nav className={styles.navLink}>
+        <NotificationBell />
+      </nav>
       <NavLink
         className={styles.navLink}
         to={`/profiles/${currentUser?.profile_id}`}
