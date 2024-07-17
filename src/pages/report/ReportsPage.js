@@ -1,44 +1,51 @@
+import React, { useEffect, useState } from 'react';
+import { Table, Container } from 'react-bootstrap';
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap'; 
-import styles from '../../styles/Form.module.css';
+import styles from '../../styles/Page.module.css';
 
-const ReportAbuseCreateForm = () => {
-    const [reportedContent, setReportedContent] = useState('');
-    const [reason, setReason] = useState('');
-    const [message, setMessage] = useState('');
+const ReportsPage = () => {
+  const [reports, setReports] = useState([]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try{
-            await axios.post('/api/reports', { 
-                reported_Content: reportedContent,
-                reason,
-            });
-            setMessage('Report submitted successfully.');
-            setReportedContent('');
-            setReason('');
-        } catch (error) {
-        setMessage('Error submitting report.');
-        console.error('Error submitting report:', error);
-        }
+  useEffect(() => {
+    const fetchReports = async () => {
+      try {
+        const response = await axios.get('/api/reports/');
+        setReports(response.data);
+      } catch (error) {
+        console.error('Failed to fetch reports:', error);
+      }
     };
-    return (
-        <Form onSubmit={handleSubmit} className={styles.Form}>
-          <Form.Group controlId="reportedContent">
-            <Form.Label>Reported Content</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              value={reportedContent}
-              onChange={(e) => setReportedContent(e.target.value)}
-              required
-              />
-      </Form.Group>
-     <Button type="submit" className="mt-3">Submit Report</Button>
-      {message && <Alert variant="info" className="mt-3">{message}</Alert>}
-    </Form>
+
+    fetchReports();
+  }, []);
+
+  return (
+    <Container className={styles.Page}>
+      <h1>Reported Content</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Reported Content</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Timestamp</th>
+          </tr>
+        </thead>
+        <tbody>
+          {reports.map((report) => (
+            <tr key={report.id}>
+              <td>{report.id}</td>
+              <td>{report.reported_content}</td>
+              <td>{report.reason}</td>
+              <td>{report.status}</td>
+              <td>{new Date(report.timestamp).toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 };
 
-export default ReportAbuseCreateForm;
+export default ReportsPage;
