@@ -1,0 +1,55 @@
+.Form {
+    max-width: 600px;
+    margin: 32px auto;
+    padding: 24px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .FormGroup {
+    margin-bottom: 16px;
+  }
+  
+  .FormLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .FormControl {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .Alert {
+    margin-top: 16px;
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .Alert.info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+  

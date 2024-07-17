@@ -1,0 +1,29 @@
+.Page {
+    padding: 32px;
+  }
+  
+  .Table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  
+  .Table th,
+  .Table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .Table th {
+    background-color: #f1f1f1;
+  }
+  
+  .Table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  h1 {
+    margin-bottom: 24px;
+  }
+  
