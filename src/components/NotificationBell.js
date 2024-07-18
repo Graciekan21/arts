@@ -37,7 +37,7 @@ const NotificationBell = () => {
         intvalNot=setInterval(() => {
             fetchNotifications();
         
-        }, 20000);
+        }, 10000);
     }else{
         if(intvalNot){
             clearInterval(intvalNot);
@@ -75,8 +75,8 @@ const NotificationBell = () => {
             <Dropdown.Toggle variant="default" id="dropdown-basic">
                 <i className="fas fa-bell">{unreadCount > 0 && `${unreadCount}`}</i>
             </Dropdown.Toggle>
-            <Dropdown.Menu>
-                <div className='text-dark'><h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3><hr/></div>
+            <Dropdown.Menu className="text-dark dropdown-menu-scroll overflow-auto">
+                <div className="text-dark" ><h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3><hr/></div>
 
                 {Array.isArray(notifications) && notifications.length > 0 ? (
                     notifications.some(notification => !notification.is_read) ? (
@@ -92,10 +92,8 @@ const NotificationBell = () => {
                                             <p className='text-wrap col-12'>{truncateMessage(notification.message, 50)}</p>
                                         </div>
                                         <hr/>
-                                        <div className="row p-3">
-                                            <div className="col-2">{notification.username}</div>
-                                            <div className="col-2">{new Date(notification.timestamp).toLocaleString()}</div>
-                                        </div>
+                                        <div className="row p-1"><p className='text-wrap col-12'>{notification.username}</p></div>
+                                        <div className="row p-1"><p className='text-wrap col-12'>{new Date(notification.timestamp).toLocaleString()}</p></div>
                                     </div>
                                     <br/>
                                 </Dropdown.Item>

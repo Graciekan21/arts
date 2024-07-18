@@ -44,10 +44,13 @@
   }
 
   .notification-dropdown .dropdown-menu {
-      max-height: 300px;
-      overflow-y: auto;
+      max-height: 200px;
+      overflow-y: scroll;
   }
-
+  .dropdown-menu-scroll {
+    max-height: 200px;
+    overflow-y: scroll;
+  }
   .notification-item {
       padding: 12px 16px;
       cursor: pointer;

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Media from "react-bootstrap/Media";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import { MoreDropdown, ReportDropdown } from "../../components/MoreDropdown";
 import CommentEditForm from "./CommentEditForm";
-
+import ReportAbuseCreateForm from "./../report/ReportAbuseCreateForm";
+import ReportList from "./../report/ReportList";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -22,8 +23,35 @@ const Comment = (props) => {
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showReportForm, setShowReportForm] = useState(false);
+  const [reports, setReports] = useState([]);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const is_superuser = currentUser?.is_superuser;
+
+  const handleResolve = async (reportId) => {
+    try {
+      await axiosRes.patch(`/reports/${reportId}/`, { is_resolved: true });
+      fetchReports();
+    } catch (error) {
+      console.error("Error resolving report:", error);
+    }
+  };
+
+  const fetchReports = useCallback(async () => {
+    try {
+      const response = await axiosRes.get(`/comments/${id}/reports/`);
+      setReports(response.data);
+    } catch (error) {
+      console.error("Error fetching reports:", error);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (is_superuser) {
+      fetchReports();
+    }
+  }, [fetchReports, is_superuser]);
 
   const handleDelete = async () => {
     try {
@@ -41,7 +69,13 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+    } catch (err) {
+      console.error("Error deleting comment:", err);
+    }
+  };
+
+  const handleReportAbuse = () => {
+    setShowReportForm(true);
   };
 
   return (
@@ -66,8 +100,18 @@ const Comment = (props) => {
           ) : (
             <p>{content}</p>
           )}
+
+          {showReportForm && <ReportAbuseCreateForm reportedContent={id} />}
+
+          {is_superuser && reports.length > 0 && (
+            <ReportList reports={reports} handleResolve={handleResolve} />
+          )}
         </Media.Body>
-        {is_owner && !showEditForm && (
+
+        {!showReportForm && (
+          <ReportDropdown handleReportAbuse={handleReportAbuse} />
+        )}
+        {is_owner && !showEditForm && !showReportForm && (
           <MoreDropdown
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
