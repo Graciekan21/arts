@@ -10,19 +10,21 @@ const ReportList = ({ reports, handleResolve }) => {
         
         {reports.map((report) => (
           <ListGroup.Item key={report.id}>
-            {report.reason}
-            {!report.is_resolved ? (
-              <Button
-                variant="success"
-                size="sm"
-                className="ml-2"
-                onClick={() => handleResolve(report.id)}
-              >
-                Resolve
-              </Button>
-            ):(
-              <button variant="default" size="sm">Resolved</button>
+            
+            {!report.is_resolved && (
+              <>
+                <span>{report.reason}</span>
+                <Button
+                  variant="success"
+                  size="sm"
+                  className="ml-2"
+                  onClick={() => handleResolve(report.id)}
+                >
+                  Resolve
+                </Button>
+              </>
             )}
+
           </ListGroup.Item>
         ))}
       </ListGroup>

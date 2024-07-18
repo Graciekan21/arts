@@ -101,14 +101,14 @@ const Comment = (props) => {
             <p>{content}</p>
           )}
 
-          {showReportForm && <ReportAbuseCreateForm reportedContent={id} />}
+          {currentUser && showReportForm && <ReportAbuseCreateForm reportedContent={id} />}
 
-          {is_superuser && reports.length > 0 && (
+          {currentUser && is_superuser && reports.length > 0 && (
             <ReportList reports={reports} handleResolve={handleResolve} />
           )}
         </Media.Body>
 
-        {!showReportForm && (
+        {currentUser && !showReportForm && (
           <ReportDropdown handleReportAbuse={handleReportAbuse} />
         )}
         {is_owner && !showEditForm && !showReportForm && (

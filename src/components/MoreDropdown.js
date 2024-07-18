@@ -15,11 +15,20 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     }}
   />
 ));
-
+const PaintDrop = React.forwardRef(({ onClick }, ref) => (
+  <i
+    className="fas fa-tint-slash"
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  />
+));
 export const ReportDropdown = ({ handleReportAbuse }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
-      <Dropdown.Toggle as={ThreeDots} />
+      <Dropdown.Toggle as={PaintDrop} />
 
       <Dropdown.Menu
         className="text-center"
