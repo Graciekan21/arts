@@ -6,7 +6,7 @@ import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
 test('renders NavBar', () => {
     render(
     <Router>
-        <NavBar />
+        <NavBar/>
     </Router>
     );
 

@@ -55,10 +55,13 @@
     "npm": "10.5.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.9",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.24.8",
     "@babel/preset-react": "^7.24.7",
-    "jest": "^27.0.0",
+    "@babel/preset-typescript": "^7.24.7",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
     "jest-environment-jsdom": "^29.7.0",
     "msw": "^2.3.1",
     "react-scripts": "^5.0.1",
