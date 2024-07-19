@@ -20,7 +20,7 @@ const NotificationBell = () => {
                 
                 const data = response.data.results;
                 if (Array.isArray(data)) {
-                    console.log(data);
+                    (data);
                     setNotifications(data);
                     setUnreadCount(data.filter(n => !n.is_read).length);
                 } else {
@@ -56,7 +56,7 @@ const NotificationBell = () => {
     const history = useHistory();
 
     const handleItemClick = (notificationId, post) => {
-        console.log(post);
+        (post);
         markAsRead(notificationId);
         history.push(`/posts/${post}`);
     };
