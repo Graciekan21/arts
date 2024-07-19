@@ -56,17 +56,10 @@ Sign Up
 
 ### Design
 
-#### Colour-Scheme
-
-The background colour for individual componenets is black (#000000).
-
-Icon, headings and border colours are gold (#cca53c).
-
-Main text is white (#ffffff).
-
-The main page background colour is an off shade of white (#f8f8f8).
-<hr>
-<br>
+#### Colour-Scheme   
+                                  
+<hr>        
+<br>    
 
 #### Typography
 
@@ -76,7 +69,7 @@ The main font used on the website is "DM Sans".
 
 #### Imagery
 
-The images on this website are user uploaded except for the logo which was taken from the royalty free stock website [istockphoto](https://www.istockphoto.com/search/search-by-asset?affiliateredirect=true&assetid=1320[…]dium=affiliate_SP&utm_source=FreeImages&utm_term=letters+bd)
+website []()
 <hr>
 <br>
 
@@ -100,7 +93,7 @@ The images on this website are user uploaded except for the logo which was taken
 
 ## Testing
 
-Testing can be found in the [TESTING.md file](https://github.com/Gareth-McGirr/body-doodles/blob/main/TESTING.md)
+Testing can be found in the [TESTING.md file]()
 <hr>
 <br>
 
@@ -124,7 +117,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 * Click deploy
 <hr>
 <br>
-The live link can be found here: [Live Site - Sizzle and Steak](https://body-doodles.onrender.com/)
+The live link can be found here: [Live Site - Sizzle and Steak](/)
 <br>
 
 ## Version Control

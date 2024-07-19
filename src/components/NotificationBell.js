@@ -12,7 +12,7 @@ const NotificationBell = () => {
     const [show, setShow] = useState(false);
     useEffect(() => {
         fetchNotifications();
-    }, []);
+    }, );
 
     const fetchNotifications = async () => {
             try {

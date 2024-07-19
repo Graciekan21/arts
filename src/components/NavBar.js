@@ -15,6 +15,7 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import NotificationBell from './NotificationBell'
 import { removeTokenTimestamp } from "../utils/utils";
+
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
