@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
@@ -10,62 +9,62 @@ const NotificationBell = () => {
     const [notifications, setNotifications] = useState([]);
     const [unreadCount, setUnreadCount] = useState(0);
     const [show, setShow] = useState(false);
-    useEffect(() => {
-        fetchNotifications();
-    }, );
+    const history = useHistory();
 
     const fetchNotifications = async () => {
-            try {
-                const response = await axios.get('mynotifications/');
-                
-                const data = response.data.results;
-                if (Array.isArray(data)) {
-                    (data);
-                    setNotifications(data);
-                    setUnreadCount(data.filter(n => !n.is_read).length);
-                } else {
+        try {
+            const response = await axios.get('mynotifications/');
+            const data = response.data.results;
+            if (Array.isArray(data)) {
+                setNotifications(data);
+                setUnreadCount(data.filter(n => !n.is_read).length);
+            } else {
                 console.error('Expected an array but got:', data);
                 setNotifications([]);
-                }
-            } catch (error) {
-                //console.error('Error fetching notifications:', error);
             }
-        
-        };
-    var intvalNot;
-    if (currentUser){
-        intvalNot=setInterval(() => {
-            fetchNotifications();
-        
-        }, 10000);
-    }else{
-        if(intvalNot){
-            clearInterval(intvalNot);
-            intvalNot=undefined;
+        } catch (error) {
+            // Handle error silently
         }
-    }
+    };
+
+    useEffect(() => {
+        let isMounted = true; // flag to track if component is mounted
+        let intervalId;
+
+        if (currentUser) {
+            fetchNotifications();
+            intervalId = setInterval(fetchNotifications, 10000);
+        }
+
+        return () => {
+            isMounted = false; // mark as unmounted
+            if (intervalId) {
+                clearInterval(intervalId); // clear the interval
+            }
+        };
+    }, [currentUser]);
+
     const markAsRead = async (id) => {
         try {
-            axios.patch(`mynotifications/${id}/`, { is_read: true });
+            await axios.patch(`mynotifications/${id}/`, { is_read: true });
             fetchNotifications();
         } catch (error) {
             console.error('Error marking notification as read:', error); 
         }
     };
 
-    const history = useHistory();
-
     const handleItemClick = (notificationId, post) => {
-        (post);
         markAsRead(notificationId);
         history.push(`/posts/${post}`);
     };
+
     const truncateMessage = (message, maxLength) => {
         if (message.length > maxLength) {
             return message.substring(0, maxLength) + '...';
         }
         return message;
     };
+
     return (
         <Dropdown
             onMouseEnter={() => setShow(true)}
@@ -76,7 +75,10 @@ const NotificationBell = () => {
                 <i className="fas fa-bell">{unreadCount > 0 && `${unreadCount}`}</i>
             </Dropdown.Toggle>
             <Dropdown.Menu className="text-dark dropdown-menu-scroll overflow-auto">
-                <div className="text-dark" ><h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3><hr/></div>
+                <div className="text-dark">
+                    <h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3>
+                    <hr/>
+                </div>
 
                 {Array.isArray(notifications) && notifications.length > 0 ? (
                     notifications.some(notification => !notification.is_read) ? (
@@ -85,7 +87,7 @@ const NotificationBell = () => {
                                 <Dropdown.Item
                                     key={notification.id}
                                     onClick={() => handleItemClick(notification.id, notification.post)}
-                                    className=' bg-primary text-light'
+                                    className='bg-primary text-light'
                                 >
                                     <div className="d-flex container flex-row">
                                         <div className={!notification.is_read ? 'row font-weight-bold' : 'row'}>
