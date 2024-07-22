@@ -45,9 +45,13 @@ Eslint was installed and configured locally. After running, one warning appeared
 
 All CSS files were individually validated. 1 error was found relating to the scroll bar and the offending line subsequently removed.
 
-![CSS]()
+![HTML](https://validator.w3.org/nu/#textarea)
 
 ## Bugs and their fixes
 
 I was facing Error on yarn start. Error screenshot is attached below, this error just happened at the last mint and i couldn't run server again.
 ![react error](/readme/testing/)
+
+Afraid to say that am so sad that i have error that just happened when am about to submit but i just and i have strangled alot with the error and Gitpod also closed alot of times but i wish i could finished to be able to hand in a better project
+
+I also have a 500 error on the if you dev tool which i couldn't fix due to time. i would i am bit slower i and this time that i had so much it get 

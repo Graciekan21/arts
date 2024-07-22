@@ -5,7 +5,7 @@ Arts is a social media platform for Artists and art lovers. Users are able to sh
 The live link can be found here: [Live-Site](https://arts-afro-4626ca68624f.herokuapp.com/)
 <br>
 
-![Mockup](/readme/images/mockup.JPG)
+![Mockup](/readme/images/mockup.png)
 
 ## The Strategy Plane
 
@@ -36,21 +36,14 @@ Feed
 
 Liked
 
-![like](/readme/wireframes/Liked.png)
-
-Profiles
-
-![Profiles](/readme/wireframes/Profiles.png)
-
-
-Sign In
-
-![Sign In]()
+![like](/readme/wireframes/liked.png)
 
 Sign Up
 
-![Sign Up]()
+![Sign Up](/readme/wireframes/signup_page.png)
 
+
+The rest of the page almost look alike with the one i have shown here
 </details>
 
 ## The Surface Plane
@@ -94,7 +87,7 @@ website []()
 
 # TESTING
 
-Testing can be found in the [TESTING.md file]()
+Testing can be found in the [TESTING.md file](https://github.com/Graciekan21/arts/tree/main)
 <hr>
 <br>
 
@@ -118,7 +111,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 * Click deploy
 <hr>
 <br>
-The live link can be found here: [](/)
+The live link can be found here: (https://arts-afro-4626ca68624f.herokuapp.com/)
 <br>
 
 ## Version Control
@@ -176,7 +169,7 @@ This  article was used to implement the art lovers community to share knowledge 
 
 ### Content
 
-Logo used was taken from [logo](/readme/images/logo.png)
+Logo used was taken from i used Favion.io
 
 Sign up & Sign in images taken from, I used the walk through images
 
@@ -184,6 +177,6 @@ Sign up & Sign in images taken from, I used the walk through images
 
 I'd like the thank slack user for help with setting up 
 
-A special thanks to all the all tutor assistant helping with error with api and heroku [tutor](/) for his help with help resolving a bug where my artist details were showing on other user profiles.
+A special thanks to all the all tutor assistant helping with error with api and heroku tutors for his help with help resolving a bug where my artist details were showing errors understanding.
 
-my gratefulness goes out to my mentor for the time answring the many questions i throw out to him [Gareth mentor](Gareth_mentor/) for also helping fix a memory leak.
+my gratefulness goes out to my mentor for the time answring the many questions i throw out to him Gareth mentor for also helping fix a memory leak.
