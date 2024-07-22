@@ -1,30 +1,49 @@
+# Body Doodles
+
+Arts is a social media platform for Artists and art lovers. Users are able to share their art pieces's, they have made or like as well as allowing Artists to showcase their work.
+<br>
+The live link can be found here: [Live-Site](https://arts-afro-4626ca68624f.herokuapp.com/)
+<br>
+
+![Mockup](/readme/images/mockup.JPG)
+
+## The Strategy Plane
+
+### Site Goals
+
+Body Doodles is aimed at all tattoo enthusiasts and tattoo artists. The site aims to connect users with tattooists, to allow them to showcase their work, artist information as well as sharing tattoos for visual pleasure.
+<hr>
+
+### Agile Planning
+
+
 ### Wireframes
 
 <details>
 
 <summary>All Wireframe Images</summary>
 
-Full size wireframes available [here](https://github.com/Gareth-McGirr/body-doodles/tree/main/readme/wireframes)
+Full size wireframes available [here](/readme/wireframes)
 
 Home / Posts
 
-![Home / Posts](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/post.png)
+![Home / Posts](/readme/wireframes/post.png)
 
 Contact
 
-![Contact](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Contact.png)
+![Contact](/readme/wireframes/notifications.png)
 
 Feed
 
-![Feed](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Feed.png)
+![Feed](/readme/wireframes/Feed.png)
 
 Liked
 
-![Liked](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Liked.png)
+![Liked](/readme/wireframes/Liked.png)
 
 Profiles
 
-![Profiles](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Profiles.png)
+![Profiles](/readme/wireframes/Profiles.png)
 
 Artist List
 
