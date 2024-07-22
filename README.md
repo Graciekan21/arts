@@ -11,7 +11,8 @@ The live link can be found here: [Live-Site](https://arts-afro-4626ca68624f.hero
 
 ### Site Goals
 
-Body Doodles is aimed at all tattoo enthusiasts and tattoo artists. The site aims to connect users with tattooists, to allow them to showcase their work, artist information as well as sharing tattoos for visual pleasure.
+arts is aimed at all t enthusiasts and show case and building a community of artists. The site aims to connect art
+ users, to allow them to showcase their work, artist information as well as sharing it for visual pleasure.
 <hr>
 
 ### Agile Planning
@@ -23,51 +24,32 @@ Body Doodles is aimed at all tattoo enthusiasts and tattoo artists. The site aim
 
 <summary>All Wireframe Images</summary>
 
-Full size wireframes available [here](/readme/wireframes)
+Full size wireframes available [here](/readme/wireframes/)
 
 Home / Posts
 
-![Home / Posts](/readme/wireframes/post.png)
-
-Contact
-
-![Contact](/readme/wireframes/notifications.png)
+![Home page](/readme/wireframes/home_page.png)
 
 Feed
 
-![Feed](/readme/wireframes/Feed.png)
+![feed](/readme/wireframes/post_page.png)
 
 Liked
 
-![Liked](/readme/wireframes/Liked.png)
+![like](/readme/wireframes/Liked.png)
 
 Profiles
 
 ![Profiles](/readme/wireframes/Profiles.png)
 
-Artist List
-
-![Artist List](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/artist-list.png)
-
-Artist Profile
-
-![Artist Profile](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/artist-profile.png)
-
-Create Artist & Edit Artist
-
-![Create Artist](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/create-artist.png)
-
-Create Post & Edit Post
-
-![Create Post](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/create-post.png)
 
 Sign In
 
-![Sign In](https://github.com/Gareth-McGirr/body-doodles/blob/main/readme/wireframes/sign-in.png)
+![Sign In]()
 
 Sign Up
 
-![Sign Up](https://github.com/Gareth-McGirr/body-doodles/blob/main/readme/wireframes/sign-up.png)
+![Sign Up]()
 
 </details>
 
