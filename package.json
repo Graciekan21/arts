@@ -12,6 +12,7 @@
     "axios": "^1.7.2",
     "bootstrap": "^4.6.0",
     "create": "^0.0.2",
+    "first": "^0.0.3",
     "jwt-decode": "^4.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.3",
@@ -27,13 +28,13 @@
   },
   "scripts": {
     "heroku-prebuild": "npm install -g serve",
-   "android": "react-native run-android",
-   "ios": "react-native run-ios",
-   "build": "react-native run-android --mode=release",
-  "lint": "eslint .",
-   "start": "react-native start",
-  "test": "jest"
-},
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "build": "react-native run-android --mode=release",
+    "lint": "eslint .",
+    "start": "react-native start",
+    "test": "jest"
+  },
   "jest": {},
   "eslintConfig": {
     "extends": [

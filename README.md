@@ -91,7 +91,7 @@ website []()
 <hr>
 <br>
 
-## Testing
+# TESTING
 
 Testing can be found in the [TESTING.md file]()
 <hr>
@@ -117,12 +117,12 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 * Click deploy
 <hr>
 <br>
-The live link can be found here: [Live Site - Sizzle and Steak](/)
+The live link can be found here: [](/)
 <br>
 
 ## Version Control
 
-The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘body-doodles’.
+The site was created using the Gitpod Code editor and pushed to github to the remote repository ‘Graciekan21/arts’.
 
 The following git commands were used throughout development to push code to the remote repo:
 
@@ -169,20 +169,20 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 ## Credits
 
-This  article was used to implement the simple star rating component:   
-* [awran5/react-simple-star-rating](https://github.com/awran5/react-simple-star-rating)
+This  article was used to implement the art lovers community to share knowledge about art at large.
+* []()
 
 
 ### Content
 
-Logo used was taken from [](https://www.istockphoto.com/search/search-by-asset?affiliateredirect=true&assetid=1320[…]dium=affiliate_SP&utm_source=FreeImages&utm_term=letters+bd)
+Logo used was taken from [logo](/readme/images/logo.png)
 
-Sign up & Sign in images taken from [](https://wallpaper.dog/traditional-tattoo-wallpapers)
+Sign up & Sign in images taken from, I used the walk through images
 
 ### Acknowledgements
 
-I'd like the thank slack user [](https://github.com/) for help with setting up eslint configs.
+I'd like the thank slack user for help with setting up 
 
-A special thanks to [](https://github.com/) for his help with help resolving a bug where my artist details were showing on other user profiles.
+A special thanks to all the all tutor assistant helping with error with api and heroku [tutor](/) for his help with help resolving a bug where my artist details were showing on other user profiles.
 
-Thanks to [](https://github.com/) for also helping fix a memory leak.
+my gratefulness goes out to my mentor for the time answring the many questions i throw out to him [Gareth mentor](Gareth_mentor/) for also helping fix a memory leak.
