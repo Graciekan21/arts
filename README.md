@@ -1,4 +1,4 @@
-# Body Doodles
+# Arts
 
 Arts is a social media platform for Artists and art lovers. Users are able to share their art pieces's, they have made or like as well as allowing Artists to showcase their work.
 <br>
@@ -111,7 +111,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 * Click deploy
 <hr>
 <br>
-The live link can be found here: (https://arts-afro-4626ca68624f.herokuapp.com/)
+The live link can be found here: [Live site](https://arts-afro-4626ca68624f.herokuapp.com/)
 <br>
 
 ## Version Control
