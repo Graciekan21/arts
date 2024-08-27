@@ -29,11 +29,10 @@
   },
   "scripts": {
     "heroku-prebuild": "npm install -g serve",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "build": "react-native run-android --mode=release",
-    "lint": "eslint .",
-    "start": "react-native start",
+    "dev": "react-scripts start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
     "test": "jest"
   },
   "jest": {},
