@@ -1,7 +1,56 @@
 # User Story Testing
 
-[Document can be viewed here]()
+[TESTING.md table](https://github.com/Graciekan21/arts/blob/main/TESTING.md)
 
+<hr>
+<br>
+
+## Unit Tests
+
+Unit tests were created for the navbar module
+
+## Lighthouse Testing
+
+Lighthouse testing was conducted, and the performance was found to be poor. This is not surprising given the large number of images, but performance could be improved in the future by compressing images before uploading them. Unfortunately, I wasn't able to implement this feature in this iteration.
+
+![lighthouse ]()
+
+![lighthouse ]()
+
+## Responsiveness
+
+All pages were tested to ensure responsiveness for all screen sizes responsive design, across Chrome, Edge, Firefox, and Opera browsers.
+Steps to test:
+
+* Open browser and navigate to 
+* Open the developer tools (right click and inspect)
+* Set to responsive and decrease width to 320px
+* Set the zoom to 50%
+* Click and drag the responsive window to maximum width
+
+Expected:
+
+
+## Deployment
+## Heroku Deployment
+
+* Navigate to heroku and create an account
+* Click the new button in the top right corner
+* Select create new app
+* Enter app name
+* Select region and click create app
+* Click the resources tab and search for Heroku Postgres
+* Select hobby dev and continue
+
+* Click the deploy tab
+* Scroll down to Connect to GitHub and sign in / authorize when prompted
+* In the search box, find the repositoy you want to deploy and click connect
+* Scroll down to Manual deploy and choose the main branch
+* Click deploy
+<hr>
+<br>
+The live link can be found here: [Live Site - Sizzle and Steak](https://arts-afro-4626ca68624f.herokuapp.com/)
+<br>
 
 
 ## Unit Tests
@@ -11,6 +60,7 @@ Unit tests were created for the navbar module
 ## Lighthouse Testing
 
 Lighthouse testing revealed that performance was poor, which is expected given the large number of images. Additionally, errors caused by the API contributed to the poor performance. To improve performance in the future, compressing images before uploading them could be beneficial. Unfortunately, I did not have time to implement this feature in this iteration.
+
 ![lighthouse](/readme/testing/lighthouse_mobile.PNG)
 ![lighthouse](/readme/testing/lighthouse_desktop)
 
