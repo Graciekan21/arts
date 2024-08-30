@@ -1,26 +1,69 @@
-# User Story Testing
+## Testing
 
-[TESTING.md table](https://github.com/Graciekan21/arts/blob/main/TESTING.md)
+![Arts](documentation/images/responsive.png)
+       
+Visit the deployed site: [Arts Site](https://arts-afro-4626ca68624f.herokuapp.com/)
 
-<hr>
-<br>
 
-## Unit Tests
+# Testing
 
-Unit tests were created for the navbar module
+Throughout the project, I tested functionality and styling after building each section or function/model, making any necessary corrections before moving forward. I consistently used Google Developer Tools to verify proper functionality and to diagnose unexpected issues. Additionally, I thoroughly inspected each page using both Google Chrome Developer Tools and the Firefox Inspector Tool to ensure responsiveness across different screen sizes and devices. I also had friends test the site by signing up, adding, and deleting comments on various devices and platforms (iOS, Android, mobile, tablet, etc.), and they reported any issues they encountered with functionality or styling.
 
+___
+
+## CONTENTS
+
+- [AUTOMATED TESTING](#automated-testing)
+  - [Bugs](#bugs)
+- [Lighthouse](#lighthouse)
+- [MANUAL TESTING](#manual-testing)
+  - [Validation Testing](#validation-testing)
+  - [HTML \& CSS](#html--css)
+  - [Python Testing](#python-testing)
+  - [Full Testing](#full-testing)
+             
+         
 ## Lighthouse Testing
 
 Lighthouse testing was conducted, and the performance was found to be poor. This is not surprising given the large number of images, but performance could be improved in the future by compressing images before uploading them. Unfortunately, I wasn't able to implement this feature in this iteration.
 
-![lighthouse ]()
+Mobile
 
-![lighthouse ]()
+![Lighthouse Mobile Score]()
 
-## Responsiveness
+Desktop
 
-All pages were tested to ensure responsiveness for all screen sizes responsive design, across Chrome, Edge, Firefox, and Opera browsers.
-Steps to test:
+![Lighthouse Desktop Score]()
+
+## Manual Testing
+
+# Posts
+
+
+| TEST | OUTCOME | PASS/FAIL|
+|:---:|:---:|:---:|
+| Create Account | successfully created |  Pass  |
+| Login | Login Successful | Pass |
+| Logout | Logout Successful | Pass |
+| Read Full Post | PostDetail page loaded successfully | Pass |
+| Add a post | Post added succssfully | Pass |
+# Comments
+
+User/Admin
+| TEST | OUTCOME | PASS/FAIL|
+|:---:|:---:|:---:|
+
+# Profiles
+
+ADMIN
+| TEST | OUTCOME | PASS/FAIL|
+|:---:|:---:|:---:|
+
+# Notifications
+
+ADMIN
+| TEST | OUTCOME | PASS/FAIL|
+|:---:|:---:|:---:|
 
 * Open browser and navigate to 
 * Open the developer tools (right click and inspect)
