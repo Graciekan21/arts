@@ -40,24 +40,26 @@ Desktop
 # Posts
 
 
-| TEST | OUTCOME | PASS/FAIL|
-|:---:|:---:|:---:|
-| Create Account | successfully created |  Pass  |
-| Login | Login Successful | Pass |
+| TEST | Description | Steps | Expected | Actual | PASS/FAIL |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| Create Account/ sign up | Ensure user is signed up | Go to Nav bar and click sign upif you are new user | sign up page displays | As expected | Pass |
+| Login/signin | Ensure the post detail page is displays on  | Pass |
 | Logout | Logout Successful | Pass |
 | Read Full Post | PostDetail page loaded successfully | Pass |
 | Add a post | Post added succssfully | Pass |
+
+
 # Comments
 
 User/Admin
-| TEST | OUTCOME | PASS/FAIL|
-|:---:|:---:|:---:|
-
+| TEST | Description | Steps | Expected | Actual | PASS/FAIL |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| comment | Esure  Make several comments on a same post | comment calcuates the sum of all comments |  
 # Profiles
 
 ADMIN
-| TEST | OUTCOME | PASS/FAIL|
-|:---:|:---:|:---:|
+| TEST | Description | Steps | Expected | Actual | PASS/FAIL |
+|:---:|:---:|:---:|:---:|:---:|:---:|
 
 # Notifications
 
