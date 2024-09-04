@@ -44,10 +44,12 @@ Desktop
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | Post  Page | Ensure post list page returns all posts | Navigate to the Deployed site | All posts displays in order of the newest first | As expected | Pass |
 | Login | Ensure the post detail page is displays on | As expected | Pass |
-| Edit post | Ensure post can be edited by user who created it | 1. Go to the post detail of a post sign in as creator. 2. Click the 3 dots. 3. Click the pencil to paper edit icon. 4. Alter all fields. 5. Click save. | User can edit their own post successfully | As expected | Pass |
-| Post image | Ensure post image field has max value of 5mb | 1. As logged in user, Click Add post. 2. In the image filed attempt to upload a file > 5mb. 3. Click save. | Image larger than 5mb cannot be uploaded As expected | Pass |
-| Delete Post |Ensure post can be delete by user who created it | 1. Go to post details of a post signed in as creator 2. Click the 3 dots 3. Click the trash icon | User can delete their  Pass |
-
+| Edit post | Ensure post can be edited by user who created it | 1. Go to the post detail of a post sign in as creator. 2. Click the 3 dots. 3. Click the pencil to paper edit icon. 4. Alter all fields. 5. Click save. | User can edit their own post successfully | As expected | PASS |
+| Post image | Ensure post image field has max value of 5mb | 1. As logged in user, Click Add post. 2. In the image filed attempt to upload a file > 5mb. 3. Click save. | Image larger than 5mb cannot be uploaded | As expected | PASS |
+| Delete Post |Ensure post can be delete by user who created it | 1. Go to post details of a post signed in as creator 2. Click the 3 dots 3. Click the trash icon | User can delete their own post Successfully | As expected | PASS |
+| Comments | Ensure posts correctly calculates comment count | 1. Make several comments on the same post | 2. Count number of comments made | Comment calcuates the sum of all comments | As expected | PASS |
+| Ensure liked posts display all liked posts | Click the Feed nav link | Only posts liked current user are displayed | As expected | PASS |
+| Feed page | Ensure feed page shows only followed user posts | 1. Log in. 2. Click the Feed 
 
 # Comments
 
