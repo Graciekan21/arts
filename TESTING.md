@@ -42,11 +42,11 @@ Desktop
 
 | TEST | Description | Steps | Expected | Actual | PASS/FAIL |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| Create Account/ sign up | Ensure user is signed up | Go to Nav bar and click sign upif you are new user | sign up page displays | As expected | Pass |
-| Login/signin | Ensure the post detail page is displays on  | Pass |
-| Logout | Logout Successful | Pass |
-| Read Full Post | PostDetail page loaded successfully | Pass |
-| Add a post | Post added succssfully | Pass |
+| Post | Ensure post list page returns all posts | Navigate to the Deployed site | All posts displays in order of the newest first | As expected | Pass |
+| Login | Ensure the post detail page is displays on | As expected | Pass |
+| post | Ensure post can be edited by user who created it | 1. Go to the post detail of a post sign in as creator. 2. Click the 3 dots. 3. Click the pencil to paper edit icon. 4. Alter all fields. 5. Click save. | User can edit their own post successfully | As expected | Pass |
+| Post image | Ensure post image field has max value of 5mb | 1. As logged in user, Click Add post. 2. In the image filed attempt to upload a file > 5mb. 3. Click save. | Image larger than 5mb cannot be uploaded As expected | Pass |
+| post Delete |Ensure post can be delete by user who created it | 1. Go to post details of a post signed in as creator 2. Click the 3 dots 3. Click the trash icon | User can  Pass |
 
 
 # Comments
