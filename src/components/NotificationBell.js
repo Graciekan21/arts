@@ -32,7 +32,7 @@ const NotificationBell = () => {
     useEffect(() => {
         let isMounted = true; // flag to track if component is mounted
         let intervalId;
-
+        fetchNotificationStatus();
         if (currentUser) {
             fetchNotifications();
             intervalId = setInterval(fetchNotifications, 10000);
@@ -54,17 +54,32 @@ const NotificationBell = () => {
             console.error('Error marking notification as read:', error); 
         }
     };
-
+    const handleNotificationDelete = async (id)=>{
+        try {
+            await axios.delete(`notifications/delete/${id}/`);
+            fetchNotifications();
+        } catch (error) {
+            console.error('Error deleting notification:', error); 
+        }
+    }
     const handleItemClick = (notificationId, post) => {
         markAsRead(notificationId);
         history.push(`/posts/${post}`);
     };
+    const fetchNotificationStatus = async () => {
+        try {
+            const response = await axios.get('/profiles/current/');
+            setIsNotificationOn(response.data.notifications_on);
+        } catch (error) {
+            console.error('Error fetching notification status:', error);
+        }
+    };
     const handleNotificationToggle= async ()=>{
         try{ 
-            await axios.patch(`togglenotifications/`);
-            setIsNotificationOn(prevState => !prevState);
+            const response = await axios.post(`profiles/togglenotifications/`);
+            setIsNotificationOn(response.data.notifications_on);
         }catch(error){
-            console.error(error);
+            console.error('Error Toggling Notifications:',error);
         }
     };
 
@@ -87,9 +102,12 @@ const NotificationBell = () => {
             <Dropdown.Menu className="text-dark dropdown-menu-scroll overflow-auto">
                 <div className="text-dark">
                     <h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3>
+                    <Button className='bg-light text-dark btn btn-sm '
+                        onClick={handleNotificationToggle}
+                        >View All</Button>
                     <hr/>
                     <div>
-                        <Button
+                        <Button className='bg-light text-dark btn btn-sm '
                         onClick={handleNotificationToggle}
                         >{isNotificationOn ? 'Notifications ON' : 'Notifications OFF'}</Button>
                     </div>
@@ -100,10 +118,12 @@ const NotificationBell = () => {
                         notifications.map(notification => (
                             !notification.is_read ? (
                                 <Dropdown.Item
-                                    key={notification.id}
-                                    onClick={() => handleItemClick(notification.id, notification.post)}
                                     className='bg-primary text-light'
                                 >
+                                    <div>
+                                    <Button className='bg-light text-dark' key={notification.id}
+                                    onClick={() => handleItemClick(notification.id, notification.post)}>
+                                        
                                     <div className="d-flex container flex-row">
                                         <div className={!notification.is_read ? 'row font-weight-bold' : 'row'}>
                                             <p className='text-wrap col-12'>{truncateMessage(notification.message, 50)}</p>
@@ -111,8 +131,16 @@ const NotificationBell = () => {
                                         <hr/>
                                         <div className="row p-1"><p className='text-wrap col-12'>{notification.username}</p></div>
                                         <div className="row p-1"><p className='text-wrap col-12'>{new Date(notification.timestamp).toLocaleString()}</p></div>
+                                        
                                     </div>
                                     <br/>
+                                    </Button>
+                                    </div>
+                                    <div>
+                                    <Button className='bg-light text-danger btn btn-sm' key={notification.id}
+                                    onClick={() => handleNotificationDelete(notification.id)}
+                        >Delete<span class="fas fa fa-trash text-danger"></span></Button>
+                        </div>
                                 </Dropdown.Item>
                             ) : null
                         ))
