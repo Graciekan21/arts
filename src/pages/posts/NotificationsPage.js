@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import axios from 'axios';
 import { Button, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-import { Link } from 'react-router-dom';
-const NotificationBell = () => {
+
+
+const NotificationsPage=()=> {
+
     const currentUser = useCurrentUser();
-    const [mynotifications, setNotifications] = useState([]);
+    const [notifications, setNotifications] = useState([]);
     const [isNotificationOn, setIsNotificationOn] = useState(true);
     const [unreadCount, setUnreadCount] = useState(0);
     const [show, setShow] = useState(false);
@@ -91,23 +93,12 @@ const NotificationBell = () => {
         return message;
     };
 
-    return (
-        <Dropdown
-            onMouseEnter={() => setShow(true)}
-            onMouseLeave={() => setShow(false)}
-            show={show}
-        >
-            <Dropdown.Toggle variant="default" id="dropdown-basic">
-                <i className="fas fa-bell">{unreadCount > 0 && `${unreadCount}`}</i>
-            </Dropdown.Toggle>
-            <Dropdown.Menu className="text-dark dropdown-menu-scroll overflow-auto">
+    return ( <div>
                 <div className="text-dark">
                     <h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3>
-                   
-            <Button className='bg-light text-dark btn btn-sm'>
-                View All
-            </Button>
-        
+                    <Button className='bg-light text-dark btn btn-sm '
+                        onClick={handleNotificationToggle}
+                        >View All</Button>
                     <hr/>
                     <div>
                         <Button className='bg-light text-dark btn btn-sm '
@@ -115,12 +106,12 @@ const NotificationBell = () => {
                         >{isNotificationOn ? 'Notifications ON' : 'Notifications OFF'}</Button>
                     </div>
                 </div>
-
-                {Array.isArray(mynotifications) && mynotifications.length > 0 ? (
-                    mynotifications.some(notification => !notification.is_read) ? (
-                        mynotifications.map(notification => (
+                <div>
+                {Array.isArray(notifications) && notifications.length > 0 ? (
+                    notifications.some(notification => !notification.is_read) ? (
+                        notifications.map(notification => (
                             !notification.is_read ? (
-                                <Dropdown.Item
+                                <div
                                 key={notification.id}
                                     className='bg-primary text-light'
                                 >
@@ -145,18 +136,18 @@ const NotificationBell = () => {
                                     onClick={() => handleNotificationDelete(notification.id)}
                         >Delete<span className="fas fa fa-trash text-danger"></span></Button>
                         </div>
-                                </Dropdown.Item>
+                                </div>
                             ) : null
                         ))
                     ) : (
                         <Dropdown.Item>No new notifications</Dropdown.Item>
                     )
                 ) : (
-                    <Dropdown.Item>No notifications</Dropdown.Item>
+                    <div>No notifications</div>
                 )}
-            </Dropdown.Menu>
-        </Dropdown>
-    );
+                </div>
+                </div>
+              )
 };
 
-export default NotificationBell;
+export default NotificationsPage;

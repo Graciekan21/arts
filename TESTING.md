@@ -1,6 +1,6 @@
 ## Testing
 
-![Arts](documentation/images/responsive.png)
+![Arts](readme/images/mockup.png)
        
 Visit the deployed site: [Arts Site](https://arts-afro-4626ca68624f.herokuapp.com/)
 
@@ -81,14 +81,14 @@ User
 | Test 5 | Ensure users can unfollow other users | 1. Click unfollow on a user that current user follows | User can successfully unfollow another user and 'unfollow' changes to 'follow' | As expected | PASS |
 | Test 5 | Ensure user can change username | 1. Navigate to the profile page.    2. Click the 3 dots.    3. Select edit username.     4. Fill in form.    5. Click save. | User can successfully change their user name | As expected | PASS |
 | Test No 6 | Ensure user can change their password | 1.  Navigate to the profile page.     2. Click the 3 dots.    3. Select edit Password.     4. Fill in form.    5. Click save. | User can successfully change their password | As expected | PASS |
-| Test 6 | Ensure all posts by user can be seen on the profile | 1. Navigate to the profile page.    2. Scroll below users details. | Users posts displayed on their profile | As expected | PASS |
+| Test 6 | Ensure all posts by user can be seen on the profile | 1. Navigate to the profile page.     2. Scroll below users details. | Users posts displayed on their profile | As expected | PASS |
 
 
 # Authorizsation 
 User
 | TEST | Description | Steps | Expected | Actual | PASS/FAIL |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| Test 1 | Ensure user can register | 1. Navigate to main site.    2. Click sign up.     3. Fill form in.     4. Click sign up. | User successfully signed up | As expected | PASS |
+| Test 1 | Ensure user can register | 1. Navigate to main site.      2. Click sign up.      3. Fill form in.      4. Click sign up. | User successfully signed up | As expected | PASS |
 | Test 2 | Ensure user can log in | 1. Navigate to main site.      2. Click sign in.       3. User Successfully logged in. | As expected | PASS |
 | Test 3 | Ensure signed out users see correct nav links | 1. As a logged in user click sign out. | Signed out successfully, Sign in and sign up links visible | As expected | PASS |
 
