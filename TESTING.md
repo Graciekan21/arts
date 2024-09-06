@@ -49,25 +49,57 @@ Desktop
 | Delete Post |Ensure post can be delete by user who created it | 1. Go to post details of a post signed in as creator 2. Click the 3 dots 3. Click the trash icon | User can delete their own post Successfully | As expected | PASS |
 | Comments | Ensure posts correctly calculates comment count | 1. Make several comments on the same post | 2. Count number of comments made | Comment calcuates the sum of all comments | As expected | PASS |
 | Ensure liked posts display all liked posts | Click the Feed nav link | Only posts liked current user are displayed | As expected | PASS |
-| Feed page | Ensure feed page shows only followed user posts | 1. Log in. 2. Click the Feed 
+| Feed page | Ensure feed page shows only followed user posts | 1. Log in. 2. Click the Feed nav link | Only posts liked by the current user 'followed' displayed | As expected | PASS |
+| Logged in User | Ensuer logged in user can create post | 1. Log in.   2. Cilck add nav link  3. Fill in all fields | Post successfully created | As expected | PASS |
+| Infinite scroll | Ensure infinite scroll works as expected | 1. Ensure 10+ posts are on the feed.   2. Scroll down to 10th post or more | New post load and scroll bar shrinks | As expected | PASS |
+| Search bar | Ensure search bar on post works as expected | Search for the word in a current post | All posts containing search keyword are displayed | As expected | PASS |
+| Unlike a post | Ensure a post can be unliked | 1. Log in the main site.   2. Click on a liked heart (red) | Love heart button loses red color and is unlike | As expected | PASS |
+| Like a post | Ensure a post can be liked | 1. Log in to the main site    2. Click the heart button on post | Love heart button highlight red when like | As expected | PASS |
+
 
 # Comments
 
 User/Admin
 | TEST | Description | Steps | Expected | Actual | PASS/FAIL |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| comment | Esure  Make several comments on a same post | comment calcuates the sum of all comments |  
+| Test 1 | Ensure user can create a comment | 1. Click a post to open the post detail page    2. scroll to the bottom of the post    3. Type in a comment in the text area    4. Click post button. | User can successfully create a comment | As expected | PASS |
+| Test 2 | Ensure user can edit a comment | 1. Click a post to open the post detail page.   2. Scroll to comment section.   3. Click 3 dots on a comments left by current user.   4. Edit the comment.    5. Click save. | As expected | PASS |
+| Test 3. | Ensure user can delete a comment | 1. Click a post to open open the detail page.   2. Scroll to comments section.   3. Click 3 dots on a comment left by current user.    4. Click the trash icon | User can successfully delete their own comment | As expected | PASS |
+| Test 4. | Ensure date is formatted correctly on UI | 1.  Click a post to open the post detail page.   2. Ensure date is present. | Date is  present and formatted correctly , e.g 04 Sep 24 | As expected | PASS |
+| Test 5. | Ensure all comments can be viewed | 1. Click a post to open the post detail page.   2. Scroll to comment section. | Comments visble under the post details | As expected | PASS |
+
+
 # Profiles
+
+User
+| TEST | Description | Steps | Expected | Actual | PASS/FAIL |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| Test 1 | Ensure user can edit a profile | 1. Navigate to the profile page.   2. Click the 3 dots.   3. Select edit profile.    4. Fill in form.   5. Click Save | User can edit their own profile | As expected | PASS |
+| Test 2 | Ensure profile page displays correct content | Navigate to profile page | Profile page displayed with correct user infor as per model | As expected | PASS |
+| Test 3 | Ensure users can unfollow other users | 1. Navigate to posts page | Popular profile list displayed | As expected | PASS |
+| Test 4 | Ensure users can follow other users | 1. Click follow on a user from profiles | User can successfully follow another user and 'follow' changes to 'unfollow' | As expected | PASS |
+| Test 5 | Ensure users can unfollow other users | 1. Click unfollow on a user that current user follows | User can successfully unfollow another user and 'unfollow' changes to 'follow' | As expected | PASS |
+| Test 5 | Ensure user can change username | 1. Navigate to the profile page.    2. Click the 3 dots.    3. Select edit username.     4. Fill in form.    5. Click save. | User can successfully change their user name | As expected | PASS |
+| Test No 6 | Ensure user can change their password | 1.  Navigate to the profile page.     2. Click the 3 dots.    3. Select edit Password.     4. Fill in form.    5. Click save. | User can successfully change their password | As expected | PASS |
+| Test 6 | Ensure all posts by user can be seen on the profile | 1. Navigate to the profile page.    2. Scroll below users details. | Users posts displayed on their profile | As expected | PASS |
+
+
+# Authorizsation 
+User
+| TEST | Description | Steps | Expected | Actual | PASS/FAIL |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| Test 1 | Ensure user can register | 1. Navigate to main site.    2. Click sign up.     3. Fill form in.     4. Click sign up. | User successfully signed up | As expected | PASS |
+| Test 2 | Ensure user can log in | 1. Navigate to main site.      2. Click sign in.       3. User Successfully logged in. | As expected | PASS |
+| Test 3 | Ensure signed out users see correct nav links | 1. As a logged in user click sign out. | Signed out successfully, Sign in and sign up links visible | As expected | PASS |
+
+
+
+# Notifications
 
 ADMIN
 | TEST | Description | Steps | Expected | Actual | PASS/FAIL |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 
-# Notifications
-
-ADMIN
-| TEST | OUTCOME | PASS/FAIL|
-|:---:|:---:|:---:|
 
 * Open browser and navigate to 
 * Open the developer tools (right click and inspect)
