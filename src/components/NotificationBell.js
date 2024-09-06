@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Dropdown } from 'react-bootstrap';
+import { Button, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NotificationBell = () => {
     const currentUser = useCurrentUser();
     const [notifications, setNotifications] = useState([]);
+    const [isNotificationOn, setIsNotificationOn] = useState(true);
     const [unreadCount, setUnreadCount] = useState(0);
     const [show, setShow] = useState(false);
     const history = useHistory();
 
+    
     const fetchNotifications = async () => {
         try {
             const response = await axios.get('mynotifications/');
@@ -57,6 +59,14 @@ const NotificationBell = () => {
         markAsRead(notificationId);
         history.push(`/posts/${post}`);
     };
+    const handleNotificationToggle= async ()=>{
+        try{ 
+            await axios.patch(`togglenotifications/`);
+            setIsNotificationOn(prevState => !prevState);
+        }catch(error){
+            console.error(error);
+        }
+    };
 
     const truncateMessage = (message, maxLength) => {
         if (message.length > maxLength) {
@@ -78,6 +88,11 @@ const NotificationBell = () => {
                 <div className="text-dark">
                     <h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3>
                     <hr/>
+                    <div>
+                        <Button
+                        onClick={handleNotificationToggle}
+                        >{isNotificationOn ? 'Notifications ON' : 'Notifications OFF'}</Button>
+                    </div>
                 </div>
 
                 {Array.isArray(notifications) && notifications.length > 0 ? (
