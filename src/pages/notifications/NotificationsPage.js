@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import axios from 'axios';
-import { Button, Dropdown } from 'react-bootstrap';
+import { Button, Card, Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-
-function NotificationsPage({ message, filter = "" }){
+function NotificationsPage({ message, filter = "" }) {
 
     const currentUser = useCurrentUser();
     const [notifications, setNotifications] = useState([]);
     const [isNotificationOn, setIsNotificationOn] = useState(true);
     const [unreadCount, setUnreadCount] = useState(0);
-    const [show, setShow] = useState(false);
     const history = useHistory();
+    const is_logged = Boolean(currentUser?.username);
 
-    
     const fetchNotifications = async () => {
         try {
             const response = await axios.get('mynotifications/');
@@ -32,19 +30,14 @@ function NotificationsPage({ message, filter = "" }){
     };
 
     useEffect(() => {
-        let isMounted = true; // flag to track if component is mounted
-        let intervalId;
         fetchNotificationStatus();
+        let intervalId;
         if (currentUser) {
             fetchNotifications();
             intervalId = setInterval(fetchNotifications, 10000);
         }
-
         return () => {
-            isMounted = false; // mark as unmounted
-            if (intervalId) {
-                clearInterval(intervalId); // clear the interval
-            }
+            if (intervalId) clearInterval(intervalId);
         };
     }, [currentUser]);
 
@@ -56,18 +49,35 @@ function NotificationsPage({ message, filter = "" }){
             console.error('Error marking notification as read:', error); 
         }
     };
-    const handleNotificationDelete = async (id)=>{
+
+    const handleNotificationDelete = async (id) => {
         try {
-            const response=await axios.delete(`notifications/delete/${id}/`);
-            console.log(response);
-            fetchNotifications();
+            const delConf=confirm("Are you sure you want to delete this Notification?");
+            if(delConf){
+                await axios.delete(`notifications/delete/${id}/`);
+                fetchNotifications();
+            }
         } catch (error) {
             console.error('Error deleting notification:', error); 
         }
-    }
+    };
+
     const handleItemClick = (notificationId, post) => {
         markAsRead(notificationId);
         history.push(`/posts/${post}`);
+    };
+
+    const handleNotificationToggle = async () => {
+        try {
+            const response = await axios.post(`profiles/togglenotifications/`);
+            setIsNotificationOn(response.data.notifications_on);
+        } catch (error) {
+            console.error('Error toggling notifications:', error);
+        }
+    };
+
+    const truncateMessage = (message, maxLength) => {
+        return message.length > maxLength ? message.substring(0, maxLength) + '...' : message;
     };
     const fetchNotificationStatus = async () => {
         try {
@@ -77,107 +87,97 @@ function NotificationsPage({ message, filter = "" }){
             console.error('Error fetching notification status:', error);
         }
     };
-    const handleNotificationToggle= async ()=>{
-        try{ 
-            const response = await axios.post(`profiles/togglenotifications/`);
-            setIsNotificationOn(response.data.notifications_on);
-        }catch(error){
-            console.error('Error Toggling Notifications:',error);
-        }
-    };
+    
+    return (
+        is_logged ? (
+            <div className="container mt-4">
+                <Row className="mb-3 align-items-center">
+                    <Col>
+                        <h3>Notifications {unreadCount > 0 && `(${unreadCount})`}</h3>
+                    </Col>
+                    <Col className="text-right">
+                        <Button 
+                            variant={isNotificationOn ? 'success' : 'secondary'}
+                            size="sm"
+                            onClick={handleNotificationToggle}
+                        >
+                            {isNotificationOn ? 'Notifications ON' : 'Notifications OFF'}
+                        </Button>
+                    </Col>
+                </Row>
 
-    const truncateMessage = (message, maxLength) => {
-        if (message.length > maxLength) {
-            return message.substring(0, maxLength) + '...';
-        }
-        return message;
-    };
-
-    return ( <div>
-                <div className="text-dark">
-                    <h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3>
-                    <hr/>
-                    <div className='justify-content-bettween'>
-                        <Button className='bg-light text-dark btn btn-sm '
-                        onClick={handleNotificationToggle}
-                        >{isNotificationOn ? 'Notifications ON' : 'Notifications OFF'}</Button>
-                    </div>
-                </div>
-                <div>
-                {Array.isArray(notifications) && notifications.length > 0 ? (
-                        notifications.map(notification => (
-                            !notification.is_read ? (
-                                <div
-                                key={notification.id}
-                                    className='bg-primary text-light'
+                <h4 className="mt-4"><b>Unread Notifications</b></h4>
+                <hr />
+                {notifications.filter(n => !n.is_read).length > 0 ? (
+                    notifications.filter(n => !n.is_read).map(notification => (
+                        <Card className="mb-3 shadow-sm" key={notification.id}>
+                            <Card.Body className="bg-primary text-white rounded">
+                                <Card.Title>{truncateMessage(notification.message, 50)}</Card.Title>
+                                <Card.Text>
+                                    <small>By: {notification.username}</small><br />
+                                    <small>{new Date(notification.timestamp).toLocaleString()}</small>
+                                </Card.Text>
+                                <Button 
+                                    variant="light" 
+                                    size="sm"
+                                    className="mr-2"
+                                    onClick={() => handleItemClick(notification.id, notification.post)}
                                 >
-                                    <div>
-                                    <Button className='bg-light text-dark' key={notification.id}
-                                    onClick={() => handleItemClick(notification.id, notification.post)}>
-                                        
-                                    <div className="d-flex container flex-row">
-                                        <div className={!notification.is_read ? 'row font-weight-bold' : 'row'}>
-                                            <p className='text-wrap col-12'>{truncateMessage(notification.message, 50)}</p>
-                                        </div>
-                                        <hr/>
-                                        <div className="row p-1"><p className='text-wrap col-12'>{notification.username}</p></div>
-                                        <div className="row p-1"><p className='text-wrap col-12'>{new Date(notification.timestamp).toLocaleString()}</p></div>
-                                        
-                                    </div>
-                                    <br/>
-                                    </Button>
-                                    </div>
-                                    <div>
-                                    <Button className='bg-light text-danger btn btn-sm'
+                                    View Post
+                                </Button>
+                                <Button 
+                                    variant="danger" 
+                                    size="sm"
                                     onClick={() => handleNotificationDelete(notification.id)}
-                        >Delete<span className="fas fa fa-trash text-danger"></span></Button>
-                        </div>
-                                </div>
-                            ) : null
-                        ))
-                ) : (
-                    <div>No Unread Notifications</div>
-                )}
-                </div>
-                <div>
-                {Array.isArray(notifications) && notifications.length > 0 ? (
-                        notifications.map(notification => (
-                            notification.is_read ? (
-                                <div
-                                key={notification.id}
-                                    className='bg-default text-dark'
                                 >
-                                    <div>
-                                    <Button className='bg-default text-dark' key={notification.id}
-                                    onClick={() => handleItemClick(notification.id, notification.post)}>
-                                        
-                                    <div className="d-flex container flex-row">
-                                        <div className={!notification.is_read ? 'row font-weight-bold' : 'row'}>
-                                            <p className='text-wrap col-12'>{truncateMessage(notification.message, 50)}</p>
-                                        </div>
-                                        <hr/>
-                                        <div className="row p-1"><p className='text-wrap col-12'>{notification.username}</p></div>
-                                        <div className="row p-1"><p className='text-wrap col-12'>{new Date(notification.timestamp).toLocaleString()}</p></div>
-                                        
-                                    </div>
-                                    <br/>
-                                    </Button>
-                                    </div>
-                                    <div>
-                                    <Button className='bg-light text-danger btn btn-sm'
-                                    onClick={() => handleNotificationDelete(notification.id)}
-                        >Delete<span className="fas fa fa-trash text-danger"></span></Button>
-                        </div>
-                                </div>
-                            ) : null
-                        ))
+                                    Delete
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    ))
                 ) : (
-                    <div>No read Notifications</div>
+                    <p>No unread notifications.</p>
                 )}
 
-                </div>
-                </div>
-              )
-};
+                <h4 className="mt-4"><b>Read Notifications</b></h4>
+                <hr />
+                {notifications.filter(n => n.is_read).length > 0 ? (
+                    notifications.filter(n => n.is_read).map(notification => (
+                        <Card className="mb-3 shadow-sm" key={notification.id}>
+                            <Card.Body className="bg-light text-dark rounded">
+                                <Card.Title>{truncateMessage(notification.message, 50)}</Card.Title>
+                                <Card.Text>
+                                    <small>By: {notification.username}</small><br />
+                                    <small>{new Date(notification.timestamp).toLocaleString()}</small>
+                                </Card.Text>
+                                <Button 
+                                    variant="dark" 
+                                    size="sm"
+                                    className="mr-2"
+                                    onClick={() => handleItemClick(notification.id, notification.post)}
+                                >
+                                    View Post
+                                </Button>
+                                <Button 
+                                    variant="danger" 
+                                    size="sm"
+                                    onClick={() => handleNotificationDelete(notification.id)}
+                                >
+                                    Delete
+                                </Button>
+                            </Card.Body>
+                        </Card>
+                    ))
+                ) : (
+                    <p>No read notifications.</p>
+                )}
+            </div>
+        ) : (
+            <div className="container text-center mt-4">
+                <h4>Please log in to view notifications</h4>
+            </div>
+        )
+    );
+}
 
 export default NotificationsPage;
