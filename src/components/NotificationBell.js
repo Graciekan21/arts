@@ -104,9 +104,11 @@ const NotificationBell = () => {
                 <div className="text-dark">
                     <h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3>
                    
-            <Button className='bg-light text-dark btn btn-sm'>
-                View All
-            </Button>
+                    <Link to="/notifications/all">
+                        <Button className='bg-light text-dark btn btn-sm'>
+                            View All
+                        </Button>
+                    </Link>
         
                     <hr/>
                     <div>

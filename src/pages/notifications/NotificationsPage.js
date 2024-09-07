@@ -5,7 +5,7 @@ import { Button, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
 
-const NotificationsPage=()=> {
+function NotificationsPage({ message, filter = "" }){
 
     const currentUser = useCurrentUser();
     const [notifications, setNotifications] = useState([]);
@@ -96,11 +96,8 @@ const NotificationsPage=()=> {
     return ( <div>
                 <div className="text-dark">
                     <h3>Notifications{unreadCount > 0 && `(${unreadCount})`}</h3>
-                    <Button className='bg-light text-dark btn btn-sm '
-                        onClick={handleNotificationToggle}
-                        >View All</Button>
                     <hr/>
-                    <div>
+                    <div className='justify-content-bettween'>
                         <Button className='bg-light text-dark btn btn-sm '
                         onClick={handleNotificationToggle}
                         >{isNotificationOn ? 'Notifications ON' : 'Notifications OFF'}</Button>
@@ -108,7 +105,6 @@ const NotificationsPage=()=> {
                 </div>
                 <div>
                 {Array.isArray(notifications) && notifications.length > 0 ? (
-                    notifications.some(notification => !notification.is_read) ? (
                         notifications.map(notification => (
                             !notification.is_read ? (
                                 <div
@@ -139,12 +135,46 @@ const NotificationsPage=()=> {
                                 </div>
                             ) : null
                         ))
-                    ) : (
-                        <Dropdown.Item>No new notifications</Dropdown.Item>
-                    )
                 ) : (
-                    <div>No notifications</div>
+                    <div>No Unread Notifications</div>
                 )}
+                </div>
+                <div>
+                {Array.isArray(notifications) && notifications.length > 0 ? (
+                        notifications.map(notification => (
+                            notification.is_read ? (
+                                <div
+                                key={notification.id}
+                                    className='bg-default text-dark'
+                                >
+                                    <div>
+                                    <Button className='bg-default text-dark' key={notification.id}
+                                    onClick={() => handleItemClick(notification.id, notification.post)}>
+                                        
+                                    <div className="d-flex container flex-row">
+                                        <div className={!notification.is_read ? 'row font-weight-bold' : 'row'}>
+                                            <p className='text-wrap col-12'>{truncateMessage(notification.message, 50)}</p>
+                                        </div>
+                                        <hr/>
+                                        <div className="row p-1"><p className='text-wrap col-12'>{notification.username}</p></div>
+                                        <div className="row p-1"><p className='text-wrap col-12'>{new Date(notification.timestamp).toLocaleString()}</p></div>
+                                        
+                                    </div>
+                                    <br/>
+                                    </Button>
+                                    </div>
+                                    <div>
+                                    <Button className='bg-light text-danger btn btn-sm'
+                                    onClick={() => handleNotificationDelete(notification.id)}
+                        >Delete<span className="fas fa fa-trash text-danger"></span></Button>
+                        </div>
+                                </div>
+                            ) : null
+                        ))
+                ) : (
+                    <div>No read Notifications</div>
+                )}
+
                 </div>
                 </div>
               )
