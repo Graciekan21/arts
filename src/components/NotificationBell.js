@@ -4,6 +4,7 @@ import { Button, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const NotificationBell = () => {
     const currentUser = useCurrentUser();
     const [mynotifications, setNotifications] = useState([]);
@@ -30,7 +31,7 @@ const NotificationBell = () => {
     };
 
     useEffect(() => {
-        let isMounted = true; // flag to track if component is mounted
+        //let isMounted = true; // flag to track if component is mounted
         let intervalId;
         fetchNotificationStatus();
         if (currentUser) {
@@ -39,7 +40,7 @@ const NotificationBell = () => {
         }
 
         return () => {
-            isMounted = false; // mark as unmounted
+            //isMounted = false; // mark as unmounted
             if (intervalId) {
                 clearInterval(intervalId); // clear the interval
             }
@@ -56,13 +57,33 @@ const NotificationBell = () => {
     };
     const handleNotificationDelete = async (id)=>{
         try {
-            const response=await axios.delete(`notifications/delete/${id}/`);
-            console.log(response);
+            await axios.delete(`notifications/delete/${id}/`);
             fetchNotifications();
         } catch (error) {
             console.error('Error deleting notification:', error); 
         }
     }
+    const confirmDeleteNotification = (id) => {
+        // SweetAlert confirmation
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleNotificationDelete(id);
+                Swal.fire(
+                    'Deleted!',
+                    'Your notification has been deleted.',
+                    'success'
+                );
+            }
+        });
+    };
     const handleItemClick = (notificationId, post) => {
         markAsRead(notificationId);
         history.push(`/posts/${post}`);
@@ -135,7 +156,7 @@ const NotificationBell = () => {
                                             <p className='text-wrap col-12'>{truncateMessage(notification.message, 50)}</p>
                                         </div>
                                         <hr/>
-                                        <div className="row p-1"><p className='text-wrap col-12'>{notification.username}</p></div>
+                                        <div className="row p-1"><p className='text-wrap col-12'>{notification.by}</p></div>
                                         <div className="row p-1"><p className='text-wrap col-12'>{new Date(notification.timestamp).toLocaleString()}</p></div>
                                         
                                     </div>
@@ -144,7 +165,7 @@ const NotificationBell = () => {
                                     </div>
                                     <div>
                                     <Button className='bg-light text-danger btn btn-sm'
-                                    onClick={() => handleNotificationDelete(notification.id)}
+                                    onClick={() => confirmDeleteNotification(notification.id)}
                         >Delete<span className="fas fa fa-trash text-danger"></span></Button>
                         </div>
                                 </Dropdown.Item>

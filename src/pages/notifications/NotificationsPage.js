@@ -3,6 +3,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import axios from 'axios';
 import { Button, Card, Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function NotificationsPage({ message, filter = "" }) {
 
@@ -52,14 +53,35 @@ function NotificationsPage({ message, filter = "" }) {
 
     const handleNotificationDelete = async (id) => {
         try {
-            const delConf=confirm("Are you sure you want to delete this Notification?");
-            if(delConf){
+            //const delConf=confirm("Are you sure you want to delete this Notification?");
+            if(true){
                 await axios.delete(`notifications/delete/${id}/`);
                 fetchNotifications();
             }
         } catch (error) {
             console.error('Error deleting notification:', error); 
         }
+    };
+    const confirmDeleteNotification = (id) => {
+        // SweetAlert confirmation
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleNotificationDelete(id);
+                Swal.fire(
+                    'Deleted!',
+                    'Your notification has been deleted.',
+                    'success'
+                );
+            }
+        });
     };
 
     const handleItemClick = (notificationId, post) => {
@@ -114,7 +136,7 @@ function NotificationsPage({ message, filter = "" }) {
                             <Card.Body className="bg-primary text-white rounded">
                                 <Card.Title>{truncateMessage(notification.message, 50)}</Card.Title>
                                 <Card.Text>
-                                    <small>By: {notification.username}</small><br />
+                                    <small>By: {notification.by}</small><br />
                                     <small>{new Date(notification.timestamp).toLocaleString()}</small>
                                 </Card.Text>
                                 <Button 
@@ -128,7 +150,7 @@ function NotificationsPage({ message, filter = "" }) {
                                 <Button 
                                     variant="danger" 
                                     size="sm"
-                                    onClick={() => handleNotificationDelete(notification.id)}
+                                    onClick={() => confirmDeleteNotification(notification.id)}
                                 >
                                     Delete
                                 </Button>
@@ -147,7 +169,7 @@ function NotificationsPage({ message, filter = "" }) {
                             <Card.Body className="bg-light text-dark rounded">
                                 <Card.Title>{truncateMessage(notification.message, 50)}</Card.Title>
                                 <Card.Text>
-                                    <small>By: {notification.username}</small><br />
+                                    <small>By: {notification.by}</small><br />
                                     <small>{new Date(notification.timestamp).toLocaleString()}</small>
                                 </Card.Text>
                                 <Button 
@@ -161,7 +183,7 @@ function NotificationsPage({ message, filter = "" }) {
                                 <Button 
                                     variant="danger" 
                                     size="sm"
-                                    onClick={() => handleNotificationDelete(notification.id)}
+                                    onClick={() => confirmDeleteNotification(notification.id)}
                                 >
                                     Delete
                                 </Button>
