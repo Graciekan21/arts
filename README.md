@@ -99,6 +99,63 @@ By Epic:
 
 * As a user you can delete your owen notifications 
 
+
+Implementation:
+
+A fully responsive navigation menu has been implemented across the website.
+
+This will allow the users to navigate to different pages on the website with ease from any device. Nav items are different depending on the users logged in state to prevent them accessing areas of the application intended for signed in users.
+
+Logged in users:
+
+When a user is logged in the following navigation items are shown:
+
+* Add Post
+* Home
+* Artists
+* Feed
+* Liked
+* Sign Out
+* Users Icon and Username
+
+Implementation:
+
+A fully responsive navigation menu has been implemented across the website.
+
+This will allow the users to navigate to different pages on the website with ease from any device. Nav items are different depending on the users logged in state to prevent them accessing areas of the application intended for signed in users.
+
+Logged in users:
+
+When a user is logged in the following navigation items are shown:
+
+* Add Post
+* Home
+* Artists
+* Feed
+* Liked
+* Sign Out
+* Users Icon and Username
+
+Implementation:
+
+A fully responsive navigation menu has been implemented across the website.
+
+This will allow the users to navigate to different pages on the website with ease from any device. Nav items are different depending on the users logged in state to prevent them accessing areas of the application intended for signed in users.
+
+Logged in users:
+
+When a user is logged in the following navigation items are shown:
+
+* Add Post
+* Home
+* Artists
+* Feed
+* Liked
+* Sign Out
+* Users Icon and Username
+
+![navbar_loggedin_expanded](/readme/images/logged%20in.png)
+
 <hr>
 <br>
 
@@ -108,7 +165,7 @@ By Epic:
 
 <summary>All Wireframe Images</summary>
 
-Full size wireframes available [here](/readme/wireframes/)
+The wireframes available here.
 
 Home / Posts
 
@@ -258,17 +315,17 @@ Most commonly, forks are used to either propose changes to someone else's projec
 ## Credits
 
 This  article was used to implement the art lovers community to share knowledge about art at large.
-* []()
+
 
 
 ### Content
-    
+           
+Logo used was taken from
+
 Sign up & Sign in images taken from, the ones used in the walk through 
          
 ### Acknowledgements
 
-I'd like the thank slack user for help with setting up 
-
-A special thanks to all the all tutor assistants helping with error with api and heroku. tutors for his help with help resolving a bug where my artist details were showing errors understanding.
+I would like to thank the Slack users for their help with the setup. A special thanks to all the tutor assistants for their support in resolving API and Heroku errors, and to the tutors for helping fix a bug where my artist details were showing errors in understanding.
 
 my gratefulness goes out to my mentor[Gareth mentor](https://learn.codeinstitute.net/ci_support/spadvfe2024_1/mentor) for the time answring the many questions i throw out to him.
