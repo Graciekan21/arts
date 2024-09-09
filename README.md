@@ -179,7 +179,7 @@ Implementation:
 
 A search bar has been added that will allow users to search for keywords so that they can search for content that interests them.
 
-![post_searchbar](/readme/images/post_searchbarr.png)
+![post_search_bar](/src/assets/post_search_bar.png)
 
 **Comments**
 
@@ -236,7 +236,7 @@ Implementation:
 
 When a user is logged in, their profile image is on display in the top right of the nav. This will allow the user to easily know when they are logged in and which account (if they have multiple)
 
-![nav_loggedin_Avatar](/readme/images/nav_logged_in_Avatar.png)
+![nav_loggedin_Avatar](/src/assets/nav_logged_in_Avatar.png)
 
 **Most followed profiles**
 
