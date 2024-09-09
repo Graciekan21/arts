@@ -156,6 +156,115 @@ When a user is logged in the following navigation items are shown:
 
 ![navbar_loggedin_expanded](/readme/images/logged%20in.png)
 
+
+`As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about`
+
+Implementation:
+
+Users can also click the Feed navigation item and this will display only posts from users the person has followed.
+
+User Story:
+
+`As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most`
+
+Implementation:
+
+Users can click the liked navigation item and display all of the posts they have liked.
+
+User Story:
+
+`As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.`
+
+Implementation:
+
+A search bar has been added that will allow users to search for keywords so that they can search for content that interests them.
+
+![post_searchbar](/readme/images/post_searchbarr.png)
+
+**Comments**
+
+Below each post, there will be a comment box available to logged in users. This will allow users to add comments under posts.
+
+![comment_create](/readme/images/comment_create.png)
+
+A comment count will also be shown under the post, to allow users to see how many people have commented on each post.
+
+A comment or updated time will be displayed in either minutes ago or days ago 
+
+The username and Avatar of the user that created the comment will displayed on each comment
+
+![comments_list_under_post](/readme/images/comments_list_under_post.png)
+
+**Profiles**
+
+User Story:
+
+`As a user I can view other users profiles so that I can see their posts and learn more about them`
+
+Implementation:
+
+Profile pages have been implemented and can be viewed by clicking on a users Avatar that is displayed on a post.
+
+To view a users own profile, they can click their icon from the navigation menu.
+
+User Stories:
+
+`As a logged in user I can edit my profile so that I can change my profile picture and bio`
+
+Implementation:
+
+If the user is the owner of the profile, they are able to edit the profile via the profile form accessed via the three dot drop down menu on the profile.
+
+![profile_edit](/readme/images/profile_edit.png)
+
+User Story:
+
+`As a logged in user I can update my username and password so that I can change my display name and keep my profile secure`
+
+Implemenation:
+
+The drop down menu also allows the user to edit their user name or password by clicking the menu options and filling in the forms.
+
+![profile_change_password](/readme/images/profile_change_password.png)
+
+
+User Story:
+
+`As a user I can tell if I am logged in or not so that I can log in if I need to`
+
+Implementation:
+
+When a user is logged in, their profile image is on display in the top right of the nav. This will allow the user to easily know when they are logged in and which account (if they have multiple)
+
+![nav_loggedin_Avatar](/readme/images/nav_logged_in_Avatar.png)
+
+**Most followed profiles**
+
+User Stories:
+
+`As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them`
+
+`As a user I can see a list of the most followed profiles so that I can see which profiles are popular`
+
+`As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them`
+
+`As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed`
+
+
+Implementation:
+
+A component showing the most followed users is shown and the user profiles are able to be viewed by clicking on these. On a desktop, the most followed users has 10 users. On a mobile device this is restricted to 4 so that it does not take up too much room as scrolling may become a nuisance. A follow button will also be displayed that will allow the logged in user to follow the target user.
+
+![most_followed_profiles](/readme/images/most_followed_pofiles.png)
+
+
+**Notification**
+
+Userstory:
+
+``As a user, i would turnon and off my notification bell so that i get to know when someone has posted a new post.
+![nav_notification_bell](/readme/images/nav_notification_bell.png)
+
 <hr>
 <br>
 
@@ -191,14 +300,14 @@ Implementation:
 
 A site favicon was implemented with the sites logo. This will allow users to easily identify Body Doodles when they have multiple tabs open.
 
-![favicon](/src/assets/favicon.png)
+![favicon](/readme/images/favicon.png)
 
 <hr>        
 <br>
 
 #### Colour-Scheme   
 
-![color-scheme](/src/assets/color_scheme.png)
+![color-scheme](/readme/images/color_scheme.png)
 The site's color scheme was generated using Adobe Express.
 
 <hr>        
