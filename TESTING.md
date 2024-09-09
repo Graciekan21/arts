@@ -27,6 +27,8 @@ ___
 
 Lighthouse testing was conducted, and the performance was found to be poor. This is not surprising given the large number of images, but performance could be improved in the future by compressing images before uploading them. Unfortunately, I wasn't able to implement this feature in this iteration.
 
+Lighthouse reported some errors that I was unable to fix, but the app is functioning as expected.
+
 Mobile
 
 ![Lighthouse Mobile Score](/readme/testing/lighthouse_mobile.png)
@@ -172,3 +174,6 @@ All CSS files were individually validated. 1 error was found relating to the scr
 I encountered an error when running yarn start. A screenshot of the error is attached below. This issue occurred at the last minute, preventing me from running the server again
 
 I also encountered a 500 error in the dev tools that I couldn't fix due to time constraints. I acknowledge that I was a bit slower this time and had a lot to manage.
+
+Some errors in the dev tools are expected.
+These errors were also present in the walkthrough, so they are expected.
