@@ -21,11 +21,86 @@ This project was developed using agile methodologies by delivering small feature
 
 All stories were assigned to epics, prioritized under the labels, Must have, should have, could have and assigned to sprints. "Must have" stories were completed first, "should haves" and then finally "could haves". It was done this way to ensure that all core requirements were completed first to give the project a complete feel, with the nice to have features being added should there be capacity.
 
-The Kanban board was created using github projects and can be located [here](https://github.com/users/Gareth-McGirr/projects/1/views/1) and can be viewed to see more information on the project cards. All stories except the documentation tasks have a full set of acceptance criteria in order to define the functionality that marks that story as complete.
+The Kanban board was created using github projects and can be located [here](https://github.com/users/Graciekan21/projects/10/views/1) and can be viewed to see more information on the project cards. All stories except the documentation tasks have a full set of acceptance criteria in order to define the functionality that marks that story as complete.
 
-![Kanban](/main/readme/kanban.PNG)
+<hr>
+
+## Epics
+
+**Set Up**
+
+This Epic covers all the initial setup of the React application and dependencies in order to begin coding features.
+
+**Posts**
+
+This epic covers the front end creation of the application in regards to posts. This is to allow users to interact with the backend API via the user interface in order to create, read, update and delete their own posts.
+
+**Comments**
+
+This epic covers the front end creation of the application in regards to comments on posts. This is to allow users to interact with the backend API in order add comments on posts.
+
+**Profiles**
+
+This epic covers the front end creation of the application in regards to user profiles. This is to allow users to interact with the backend API via the user interface to manage their own profiles.
+
+**Notifications** 
+
+This epic covers the front end creation of the application in regards to user notifications. This is to allow users to interact with the backend API via the user interface to manage the notifications bell.
 
 
+## User Stories
+
+By Epic:
+
+**Posts**
+
+* As a logged in user I can create posts so that I can share my images
+* As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page"
+* As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created
+* As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about
+* As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most
+* As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content
+* As a logged in user I can like a post so that I can show my support for the posts that interest me
+* As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.
+* As a user I can view the details of a single post so that I can learn more about it
+
+**Comments**
+
+* As a logged in user I can add comments to a post so that I can share my thoughts about the post
+* As a user I can see how long ago a comment was made so that I know how old a comment is
+* As a user I can read comments on posts so that I can read what other users think about the posts
+* As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
+* As an owner of a comment I can edit my comment so that I can fix or update my existing comment
+
+**Profiles**
+
+* As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them
+* As a user I can view other users profiles so that I can see their posts and learn more about them
+* As a user I can create a new account so that I can access all the features for signed up users
+* As a user I can view user's avatars so that I can easily identify users of the application
+* As a user I can tell if I am logged in or not so that I can log in if I need to
+* As a user I can see a list of the most followed profiles so that I can see which profiles are popular
+* As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them
+* As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed
+* As a logged in user I can edit my profile so that I can change my profile picture and bio
+* As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+
+**Setup**
+
+* As a user, I would like a favicon on the website so that I can easily know which tab belongs to body doodles
+
+* As a logged out user I can see sign in and sign up options so that I can sign in / sign up
+
+* As a user, I would like a fully responsive navigation menu so that I can easily access the site from any device
+
+**notification**
+
+* As a user i would like to turn on or off the notifications
+
+* As a user you can delete your owen notifications 
+
+<hr>
+<br>
 
 ### Wireframes
 
@@ -42,11 +117,7 @@ Home / Posts
 Feed
 
 ![feed](/readme/wireframes/post_page.png)
-
-Liked
-
-![like](/readme/wireframes/liked.png)
-
+   
 Sign Up
 
 ![Sign Up](/readme/wireframes/signup_page.png)
@@ -59,20 +130,35 @@ The rest of the page almost look alike with the one i have shown here
 
 ### Design
 
+Implementation:
+
+A site favicon was implemented with the sites logo. This will allow users to easily identify Body Doodles when they have multiple tabs open.
+
+![favicon](/src/assets/favicon.png)
+
+<hr>        
+<br>
+
 #### Colour-Scheme   
-                                  
+
+![color-scheme](/src/assets/color_scheme.png)
+The site's color scheme was generated using Adobe Express.
+
 <hr>        
 <br>    
 
 #### Typography
 
-The main font used on the website is "DM Sans".
+The main font used on the website is "DM Sans". from
+[Google-fonts](https://fonts.google.com/)
+
 <hr>
 <br>
 
 #### Imagery
 
-website []()
+website [imagery](https://www.pexels.com/photo/man-in-blue-knit-sweater-against-blue-wall-4890733/)
+
 <hr>
 <br>
 
@@ -82,12 +168,11 @@ website []()
     * Main framework used to create the user interface
 * Node
     * Package manager used to install dependencies
-* Eslint
-    * Linting tool used in order to check best practice coding standards
+
 * Heroku
     * Used for application hosting
 * Git
-    * Version control software
+    * Gitpod 
 * Github
     * Repository used to store base code and docs
 
@@ -177,15 +262,13 @@ This  article was used to implement the art lovers community to share knowledge 
 
 
 ### Content
-
-Logo used was taken from i used Favion.io
-
-Sign up & Sign in images taken from, I used the walk through images
-
+    
+Sign up & Sign in images taken from, the ones used in the walk through 
+         
 ### Acknowledgements
 
 I'd like the thank slack user for help with setting up 
 
-A special thanks to all the all tutor assistant helping with error with api and heroku tutors for his help with help resolving a bug where my artist details were showing errors understanding.
+A special thanks to all the all tutor assistants helping with error with api and heroku. tutors for his help with help resolving a bug where my artist details were showing errors understanding.
 
-my gratefulness goes out to my mentor for the time answring the many questions i throw out to him Gareth mentor for also helping fix a memory leak.
+my gratefulness goes out to my mentor[Gareth mentor](https://learn.codeinstitute.net/ci_support/spadvfe2024_1/mentor) for the time answring the many questions i throw out to him.
